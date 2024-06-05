@@ -6,7 +6,7 @@ c = conn.cursor()
 # Create the table if it doesn't exist
 c.execute('CREATE TABLE IF NOT EXISTS scores (username TEXT, score INTEGER)')
 
-difficulty,players,hints,category,username=[0,0,0,0,0]
+difficulty,players,hints,category,username=[0,0,-1,0,0]
 
 # all the words that will pop up for hangman
 words = {
@@ -52,7 +52,7 @@ def play(difficulty,hints,category):
     length=len(Secretword)
     blanks=length*"_"
     # incase a costume hint is chosen in the main menue 
-    if hints==0:
+    if hints==-1:
         guesses=guesses[difficulty]
     else:
         guesses=hints
